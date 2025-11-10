@@ -60,5 +60,5 @@ npm run start:dev
 
 ### Access the URL from the broswer and you will see the available APIs
 ```bash
-	http://localhost:3000/swagger
+http://localhost:3000/swagger
 ```
