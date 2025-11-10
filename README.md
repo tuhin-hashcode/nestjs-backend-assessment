@@ -20,40 +20,45 @@
   <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
 </p>
 
+## Project Setup Instructions:
 
 ### Add .env file in root project directory and add following values
 > **Note:** make sure to set your PostgreSQL password:
 
-  PORT=3000
-	DATABASE_PORT=5432
-	DATABASE_HOST=127.0.0.1
-	DATABASE_USER=postgres
-	DATABASE_PASSWORD=
-	DATABASE_DB=nestjs_backend_assessment
+```bash
+PORT=3000
+DATABASE_PORT=5432
+DATABASE_HOST=127.0.0.1
+DATABASE_USER=postgres
+DATABASE_PASSWORD=
+DATABASE_DB=nestjs_backend_assessment
+```
 
 ### In your PostgreSQL create a DB named nestjs_backend_assessment
 
 ### Install the packages
 
 ```bash
-$ npm install
+npm install
 ```
 
 ### Build the app
 
 ```bash
-$ npm run build
+npm run build
 ```
 
 ### Run the DB Migration
 ```bash
-$ npm run migration:run
+npm run migration:run
 ```
 
 ### Compile and run the project in Local Env
 ```bash
-$ npm run start:dev
+npm run start:dev
 ```
 
 ### Access the URL from the broswer and you will see the available APIs
+```bash
 	http://localhost:3000/swagger
+```
