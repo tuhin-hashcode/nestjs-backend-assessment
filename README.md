@@ -22,7 +22,7 @@
 
 ## Project Setup Instructions:
 
-### Add .env file in root project directory and add following values
+### 1.0 Add .env file in root project directory and add following values
 > **Note:** make sure to set your PostgreSQL password:
 
 ```bash
@@ -34,31 +34,34 @@ DATABASE_PASSWORD=
 DATABASE_DB=nestjs_backend_assessment
 ```
 
-### In your PostgreSQL create a DB named nestjs_backend_assessment
+### 2.0 In your PostgreSQL create a DB named 
+```bash
+nestjs_backend_assessment
+```
 
-### Install the packages
+### 3.0 Install the packages
 
 ```bash
 npm install
 ```
 
-### Build the app
+### 4.0 Build the app
 
 ```bash
 npm run build
 ```
 
-### Run the DB Migration
+### 5.0 Run the DB Migration
 ```bash
 npm run migration:run
 ```
 
-### Compile and run the project in Local Env
+### 6.0 Compile and run the project in Local Env
 ```bash
 npm run start:dev
 ```
 
-### Access the URL from the broswer and you will see the available APIs
+### 7.0 Access the URL from the broswer and you will see the available APIs
 ```bash
 http://localhost:3000/swagger
 ```
