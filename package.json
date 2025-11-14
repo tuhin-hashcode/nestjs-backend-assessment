@@ -20,12 +20,12 @@
     "typeorm": "typeorm-ts-node-commonjs",
     "schema:sync": "npx typeorm-ts-node-commonjs schema:sync",
     "typeorm:cache": "npx typeorm-ts-node-commonjs cache:clear",
-    "schema:drop": "npx typeorm-ts-node-commonjs -d ./src/database/data-source.ts",
-    "migration:create": "node -e \"const migrationName = process.argv[2] || 'default-migration'; require('child_process').execSync('typeorm migration:create ./src/migrations/' + migrationName, { stdio: 'inherit' })\"",
-    "migration:generate": "npx typeorm-ts-node-commonjs migration:generate ./src/migrations/schema-update -d ./src/database/data-source.ts",
-    "migration:show": "npx typeorm-ts-node-commonjs migration:show -d ./src/database/data-source.ts",
-    "migration:run": "npx typeorm-ts-node-commonjs migration:run -d  ./src/database/data-source.ts",
-    "migration:revert": "npx typeorm-ts-node-commonjs migration:revert -d ./src/database/data-source.ts"
+    "migration:create": "ts-node ./src/database/migration-create.ts",
+    "migration:generate": "ts-node ./src/database/migration-generate.ts",
+    "migration:run": "drizzle-kit push --config ./src/config/drizzle.config.ts",
+    "migration:show": "drizzle-kit studio --config ./src/config/drizzle.config.ts",
+    "seed:create": "ts-node ./src/database/seed-create.ts",
+    "seed:run": "ts-node ./src/database/seed-run.ts"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -40,14 +40,14 @@
     "bcrypt": "^5.1.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "drizzle-orm": "^0.44.7",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
-    "pg": "^8.13.1",
+    "pg": "^8.16.3",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
-    "swagger-ui-express": "^5.0.1",
-    "typeorm": "^0.3.20"
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
@@ -59,9 +59,11 @@
     "@types/passport": "^1.0.17",
     "@types/passport-jwt": "^4.0.1",
     "@types/passport-local": "^1.0.38",
+    "@types/pg": "^8.15.6",
     "@types/supertest": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
+    "drizzle-kit": "^0.31.7",
     "eslint": "^8.0.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",

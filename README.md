@@ -65,3 +65,14 @@ npm run start:dev
 ```bash
 http://localhost:3000/swagger
 ```
+
+
+npm install drizzle-orm drizzle-kit pg
+npm install -D @types/pg
+
+npm run migration:generate InitialMigration
+npm run migration:create UpdatedPlayer
+npm run migration:run
+
+npm run seed:create InsertPlayersAndPlayerSession
+npm run seed:run 1763110003380_InsertPlayersAndPlayerSession.sql

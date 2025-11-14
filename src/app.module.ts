@@ -1,20 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { typeOrmConfigFactory } from './config/typeorm.config';
-import { PlayerModule } from './modules/player/player.module';
+import { ConfigModule } from '@nestjs/config';
+import { DrizzleModule } from './database/drizzle.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: typeOrmConfigFactory,
-      inject: [ConfigService],
-    }),
-    PlayerModule,
+    DrizzleModule,
   ],
   controllers: [AppController],
   providers: [AppService],
