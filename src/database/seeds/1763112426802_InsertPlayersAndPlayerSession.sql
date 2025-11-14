@@ -1,3 +1,4 @@
+-- Write your SQL here
 INSERT INTO player (name, email, activation_status, display_id) VALUES
 ('Alice', 'alice@example.com', true, 'P001'),
 ('Bob', 'bob@example.com', true, 'P002'),

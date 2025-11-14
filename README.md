@@ -27,6 +27,7 @@
 
 ```bash
 PORT=3000
+IS_LOCAL_DB=true
 DATABASE_PORT=5432
 DATABASE_HOST=127.0.0.1
 DATABASE_USER=postgres
@@ -43,6 +44,8 @@ nestjs_backend_assessment
 
 ```bash
 npm install
+npm install drizzle-orm drizzle-kit pg
+npm install -D @types/pg
 ```
 
 ### 4.0 Build the app
@@ -51,17 +54,44 @@ npm install
 npm run build
 ```
 
-### 5.0 Run the DB Migration
+### 5.0 Run Migrations
+#### Generate a migration from schema changes
+```bash
+npm run migration:generate InitialMigration
+```
+
+#### Create a manual migration
+```bash
+npm run migration:create UpdatedPlayer
+```
+
+#### Run all migrations
 ```bash
 npm run migration:run
 ```
 
-### 6.0 Compile and run the project in Local Env
+### 6.0 Seed the Database
+#### reate a new seed file
+```bash
+npm run seed:create InsertPlayersAndPlayerSession
+```
+
+#### Run a specific seed
+```bash
+npm run seed:run InsertPlayersAndPlayerSession
+```
+
+#### Run all seeds in src/database/seeds/
+```bash
+npm run seed:run
+```
+
+### 7.0 Compile and run the project in Local Env
 ```bash
 npm run start:dev
 ```
 
-### 7.0 Access the URL from the broswer and you will see the available APIs
+### 8.0 Access the URL from the broswer and you will see the available APIs
 ```bash
 http://localhost:3000/swagger
 ```
@@ -75,4 +105,5 @@ npm run migration:create UpdatedPlayer
 npm run migration:run
 
 npm run seed:create InsertPlayersAndPlayerSession
-npm run seed:run 1763110003380_InsertPlayersAndPlayerSession.sql
+npm run seed:run InsertPlayersAndPlayerSession
+npm run seed:run
